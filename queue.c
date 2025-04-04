@@ -26,7 +26,7 @@ int number_of_moves(struct game_state start) {
     while (q.data.head) {
         struct game_state state = dequeue(&q);
         uint64_t s = serialize(state);
-        size_t index = (s ^ (s >> 32)) % SIZE;
+        //size_t index = (s ^ (s >> 32)) % SIZE;
 
         // Already marked at enqueue, no need to check again here
 
@@ -63,7 +63,7 @@ int number_of_moves(struct game_state start) {
             uint64_t next_s = serialize(next);
             size_t next_index = (next_s ^ (next_s >> 32)) % SIZE;
             if (!visited[next_index]) {
-                visited[next_index] = true;  /
+                visited[next_index] = true;  
                 enqueue(&q, next);
             }
         }
