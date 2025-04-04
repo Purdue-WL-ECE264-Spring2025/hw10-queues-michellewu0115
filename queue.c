@@ -1,6 +1,9 @@
 #include "queue.h"
 #include "tile_game.h"
 
+void *calloc(unsigned long nmemb, unsigned long size);
+void free(void *ptr);
+
 void enqueue(struct queue *q, struct game_state state) {
     insert_at_tail(&q->data, serialize(state));
 }
